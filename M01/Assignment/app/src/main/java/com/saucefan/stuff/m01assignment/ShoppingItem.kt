@@ -5,31 +5,31 @@ import android.database.sqlite.SQLiteOpenHelper
 
 
 
-open class ShoppingItem(open val colorId:Int, val productName:String) {
+open class ShoppingItem(open val colorId:String, val productName:String) {
     var getPN = productName
     open fun getDisplayName(): String {
         return getPN
     }
 }
 
-class Electronics(colorId:Int = 104444, productName:String): ShoppingItem(colorId, productName) {
-
+class Electronics(colorId:String, productName:String): ShoppingItem(colorId, productName) {
+    override val colorId  = "104444"
     override fun getDisplayName(): String {
         return "$getPN+electronics"
     }
 }
 
-class Groceries(colorId:Int= 555500, productName:String): ShoppingItem(colorId, productName) {
-
-    override fun getDisplayName(): String {
+class Groceries(colorId:String, productName:String): ShoppingItem(colorId, productName) {
+    override val colorId = "555500"
+        override fun getDisplayName(): String {
         return "$getPN+Groceries"
     }
 }
 
-class Dresses(colorId:Int= 660066, productName:String): ShoppingItem(colorId, productName) {
-
+class Dresses(colorId:String, productName:String): ShoppingItem(colorId, productName) {
+    override val colorId = "660066"
     override fun getDisplayName(): String {
-        return "$getPN+electronics"
+        return "$getPN+dresses"
     }
 }
 
@@ -37,27 +37,31 @@ class Dresses(colorId:Int= 660066, productName:String): ShoppingItem(colorId, pr
 object ItemMockData : ArrayList<ShoppingItem>(
     arrayListOf(
         Electronics(
-            colorId =  1,
-            productName = "elec1"
+            colorId =  "000000",
+            productName = "1elec1"
         ),
         Electronics(
-            colorId =  1,
-            productName = "elec2"
+            colorId =  "000000",
+            productName = "2elec2"
         ),
         Groceries(
-            colorId =  1,
-            productName = "groceries1"
-        ),
-        Groceries(
-            colorId =  1,
-            productName = "groceries2"
+            colorId =  "000000",
+            productName = "1groceries1"
         ),
         Dresses(
-            colorId =  1,
-            productName = "dresses1"
+            colorId =  "000000",
+            productName = "shopshops"
+        ),
+        Groceries(
+            colorId =  "000000",
+            productName = "2groceries2"
+        ),
+        Dresses(
+            colorId =  "000000",
+            productName = "1dresses1"
         ),
         ShoppingItem(
-            colorId =  100000,
+            colorId =  "000000",
             productName = "ShoppingItem"
         )
     )

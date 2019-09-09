@@ -12,13 +12,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var shopingItemList = mutableListOf<ShoppingItem>()
-        val manager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
-        val adapter = Adapter(shopingItemList)
+        val manager = StaggeredGridLayoutManager(10, StaggeredGridLayoutManager.HORIZONTAL)
+        val adapter = Adapter(ItemMockData)
         recycle_view.layoutManager = manager
         recycle_view.adapter = adapter
 
-        //color change code for later
-        //myLayout.setBackgroundColor(Color.parseColor("#636161"))
+
 
     }
 }
