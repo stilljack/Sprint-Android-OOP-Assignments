@@ -48,7 +48,7 @@ object ItemMockData : ArrayList<ShoppingItem>(
             colorId =  "000000",
             productName = "1groceries1"
         ),
-        Dresses(
+        ShoppingItem(
             colorId =  "000000",
             productName = "shopshops"
         ),
@@ -62,7 +62,7 @@ object ItemMockData : ArrayList<ShoppingItem>(
         ),
         ShoppingItem(
             colorId =  "000000",
-            productName = "ShoppingItem"
+            productName = "si"
         )
     )
 )
