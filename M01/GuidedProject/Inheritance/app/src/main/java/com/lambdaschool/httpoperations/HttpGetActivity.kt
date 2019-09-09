@@ -12,14 +12,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HttpGetActivity : AppCompatActivity() {
+class HttpGetActivity : HttpActivity()  {
 
-    lateinit var jsonPlaceHolderApi: JsonPlaceHolderApi
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_http_get)
-        jsonPlaceHolderApi = JsonPlaceHolderApi.Factory.create()
+
         val type = intent.getStringExtra("get")
         if (type == "simple") {
             title = "GET - Simple Request"
@@ -34,12 +34,14 @@ class HttpGetActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun getEmployees(){
         jsonPlaceHolderApi.getEmployees().enqueue(object : Callback<List<Employee>>{
 
             override fun onFailure(call: Call<List<Employee>>, throwable: Throwable) {
-                progressBar.visibility = View.GONE
-                result.text = throwable.toString()
+                this@HttpGetActivity.onFailure(throwable)
+                   // this.onFailure(throwable) doesn't work... remember to know the context
             }
 
             override fun onResponse(call: Call<List<Employee>>, response: Response<List<Employee>>) {
@@ -51,7 +53,14 @@ class HttpGetActivity : AppCompatActivity() {
                     val content = SpannableStringBuilder()
                     employees?.forEach { employee ->
                         content
-                            .bold { append("Name: ") }
+                            .bold{
+                                append(employee.signature())
+                            }
+                            .append("${employee is Employee}")
+                            .append("\n")}
+
+
+                 /*           .bold { append("Name: ") }
                             .append(employee.name).append("\n")
                             .bold { append("Id: ") }
                             .append(employee.id.toString()).append("\n")
@@ -59,7 +68,7 @@ class HttpGetActivity : AppCompatActivity() {
                             .append(employee.age.toString()).append("\n")
                             .bold { append("Title: ") }
                             .append(employee.title).append("\n").append("\n")
-                    }
+                    }*/
                     result.text = content
                 }
             }
