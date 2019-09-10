@@ -1,9 +1,9 @@
 package com.saucefan.stuff.m02.model
 
  class Helicopter(id:String) : Vehicle(id), AirTravel {
-
-    override fun move(): String {
-        return "$id can ${fly()}"
+     val type ="helicopter"
+    override fun travel(): String {
+        return "$type $id can ${fly()}"
     }
 
     override fun fly() :  String {
@@ -13,21 +13,21 @@ package com.saucefan.stuff.m02.model
 }
 
 class Car(id:String) : Vehicle(id), GroundTravel {
-
+    val type ="car"
     override fun drive() :  String{
        return "Drive()"
     }
 
-    override fun move(): String {
-        return "$id can ${drive()}"
+    override fun travel(): String {
+        return "$type cam $id can ${drive()}"
     }
 
 }
 
 class Boat(id:String) : Vehicle(id), WaterTravel {
-
-    override fun move(): String {
-        return "$id can ${sail()}"
+    val type ="boat"
+    override fun travel(): String {
+        return "$type $id can ${sail()}"
     }
 
     override fun sail():  String {
@@ -38,9 +38,9 @@ class Boat(id:String) : Vehicle(id), WaterTravel {
 }
 
 class BoatCar(id:String) : Vehicle(id), WaterTravel, GroundTravel {
-
-    override fun move(): String {
-        return "$id can ${sail()} and ${drive()}"
+    val type ="boatcar"
+    override fun travel(): String {
+        return "$type $id can ${sail()} and ${drive()}"
     }
     override fun sail():  String {
         return "Sail()"
@@ -54,12 +54,13 @@ class BoatCar(id:String) : Vehicle(id), WaterTravel, GroundTravel {
 }
 
 class BondCar(id:String) : Vehicle(id), WaterTravel, GroundTravel, AirTravel {
+    val type ="bondcar"
     override fun fly() :  String {
         return "Fly()"
     }
 
-    override fun move(): String {
-        return "$id can ${fly()} and ${drive()} and ${sail()} "
+    override fun travel(): String {
+        return "$type $id can ${fly()} and ${drive()} and ${sail()} "
     }
 
     override fun sail():  String {
@@ -74,8 +75,9 @@ class BondCar(id:String) : Vehicle(id), WaterTravel, GroundTravel, AirTravel {
 }
 
 class BoatPlane(id:String,weight:String) : Vehicle(id,weight), WaterTravel, AirTravel {
-    override fun move(): String {
-        return "$id can ${fly()} and  ${sail()} "
+    val type ="boatplane"
+    override fun travel(): String {
+        return "$type $id can ${fly()} and  ${sail()} "
     }
     override fun fly() :  String {
         return "Fly()"

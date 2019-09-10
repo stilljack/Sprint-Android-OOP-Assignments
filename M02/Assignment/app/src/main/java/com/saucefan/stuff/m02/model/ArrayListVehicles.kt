@@ -4,7 +4,9 @@ object ArrayListVehicles {
 
 
     val vehicleArrayList = arrayListOf<Vehicle>(
-    Helicopter("1"), Boat("2"), BondCar(id="7"), BoatCar("3"), Car("4"), BoatPlane("3","3 hundo")
+    Helicopter("1"), Boat("2"), BondCar(id="007"), BoatCar("3"), Car("4"), BoatPlane("3","3 hundo"),
+
+                Helicopter("11"), Boat("222"), BondCar(id="008"), BoatCar("23"), Car("14"), BoatPlane("32","55 hundo")
 )
 
 

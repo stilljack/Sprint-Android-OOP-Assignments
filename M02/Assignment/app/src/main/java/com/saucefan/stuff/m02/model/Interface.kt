@@ -8,7 +8,7 @@ abstract class Vehicle(
     val favorite: Boolean = false
     /// something:Something ;)
 ) {
-    abstract fun move(): String
+    abstract fun travel(): String
 }
 
 

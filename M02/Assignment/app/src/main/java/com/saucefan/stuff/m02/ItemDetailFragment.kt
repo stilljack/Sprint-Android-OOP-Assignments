@@ -46,7 +46,7 @@ class ItemDetailFragment : Fragment() {
 
         // Show the dummy content as text in a TextView.
         item?.let {
-            rootView.item_detail.text = it.move()
+            rootView.item_detail.text = it.travel()
         }
 
         return rootView
