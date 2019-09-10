@@ -49,7 +49,7 @@ class BoatCar() : Vehicle(), WaterTravel, GroundTravel {
 
 }
 
-class BondCar() : Vehicle(), WaterTravel, GroundTravel, AirTravel {
+class BondCar(id:String) : Vehicle(), WaterTravel, GroundTravel, AirTravel {
     override fun fly() :  String {
         return "Fly()"
     }
@@ -69,7 +69,7 @@ class BondCar() : Vehicle(), WaterTravel, GroundTravel, AirTravel {
 
 }
 
-class BoatPlane() : Vehicle(), WaterTravel, AirTravel {
+class BoatPlane(weight:String) : Vehicle(weight), WaterTravel, AirTravel {
     override fun move(): String {
         return "$id can ${fly()} and  ${sail()} "
     }
