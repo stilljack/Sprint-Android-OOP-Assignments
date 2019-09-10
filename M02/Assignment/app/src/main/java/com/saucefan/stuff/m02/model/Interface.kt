@@ -14,13 +14,13 @@ abstract class Vehicle(
 
 //three interfaces
 interface AirTravel {
-    fun fly()
+    fun fly():  String
 }
 
 interface WaterTravel {
-    fun sail()
+    fun sail():  String
 }
 
 interface GroundTravel {
-    fun drive()
+    fun drive():  String
 }
