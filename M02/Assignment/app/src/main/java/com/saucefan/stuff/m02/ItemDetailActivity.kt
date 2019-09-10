@@ -5,6 +5,9 @@ import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
+import com.saucefan.stuff.m02.model.ArrayListVehicles
+import com.saucefan.stuff.m02.model.Boat
+import com.saucefan.stuff.m02.model.Vehicle
 import kotlinx.android.synthetic.main.activity_item_detail.*
 
 /**
@@ -13,7 +16,8 @@ import kotlinx.android.synthetic.main.activity_item_detail.*
  * item details are presented side-by-side with a list of items
  * in a [ItemListActivity].
  */
-class ItemDetailActivity : AppCompatActivity() {
+class ItemDetailActivity : AppCompatActivity(), ItemDetailFragment.Favorite {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +25,8 @@ class ItemDetailActivity : AppCompatActivity() {
         setSupportActionBar(detail_toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own detail action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            var item = ArrayListVehicles.ITEM_MAP[intent.getStringExtra(ItemDetailFragment.ARG_ITEM_ID) as String] ?: Boat("111")
+            flipFavorite(item, this)
         }
 
         // Show the Up button in the action bar.

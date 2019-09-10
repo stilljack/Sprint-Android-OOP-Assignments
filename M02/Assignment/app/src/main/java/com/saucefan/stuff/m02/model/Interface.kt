@@ -5,7 +5,7 @@ package com.saucefan.stuff.m02.model
 abstract class Vehicle(
     val id: String? = null,
     val weight: String? = null,
-    val favorite: Boolean = false
+    var favorite: Boolean = false
     /// something:Something ;)
 ) {
     abstract fun travel(): String

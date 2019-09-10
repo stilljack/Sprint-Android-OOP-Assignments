@@ -71,7 +71,7 @@ open class BoatPlane(id:String,weight:String) : Vehicle(id,weight), WaterTravel,
 }
 
 class BondCar(id:String,weight:String) : BoatPlane(id, weight), GroundTravel {
-
+// we also pick up the need for a weight constructor
     override fun travel(): String {
         return "$type $id can ${fly()} and ${drive()} and ${sail()} "
     }

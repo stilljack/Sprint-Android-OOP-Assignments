@@ -104,11 +104,6 @@ class ItemListActivity : AppCompatActivity() {
                 tag = item
                 setOnClickListener(onClickListener)
 
-
-                setOnLongClickListener{
-                    ArrayListVehicles.vehicleArrayList
-                    true
-                }
             }
         }
 
