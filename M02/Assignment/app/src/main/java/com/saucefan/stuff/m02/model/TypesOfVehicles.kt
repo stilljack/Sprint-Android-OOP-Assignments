@@ -1,6 +1,7 @@
 package com.saucefan.stuff.m02.model
 
  class Helicopter : Vehicle(), AirTravel {
+    override var id= "1"
     override fun move(): String {
         return "$id can ${fly()}"
     }
@@ -12,6 +13,7 @@ package com.saucefan.stuff.m02.model
 }
 
 class Car() : Vehicle(), GroundTravel {
+    override var id= "2"
     override fun drive() :  String{
        return "Drive()"
     }
@@ -23,6 +25,7 @@ class Car() : Vehicle(), GroundTravel {
 }
 
 class Boat() : Vehicle(), WaterTravel {
+    override var id= "3"
     override fun move(): String {
         return "$id can ${sail()}"
     }
@@ -35,6 +38,7 @@ class Boat() : Vehicle(), WaterTravel {
 }
 
 class BoatCar() : Vehicle(), WaterTravel, GroundTravel {
+    override var id= "4"
     override fun move(): String {
         return "$id can ${sail()} and ${drive()}"
     }
@@ -70,6 +74,7 @@ class BondCar(id:String) : Vehicle(), WaterTravel, GroundTravel, AirTravel {
 }
 
 class BoatPlane(weight:String) : Vehicle(weight), WaterTravel, AirTravel {
+    override var id= "5"
     override fun move(): String {
         return "$id can ${fly()} and  ${sail()} "
     }
