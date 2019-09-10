@@ -17,7 +17,7 @@ interface AirTravel {
     fun fly()
 }
 
-interface WraterTravel {
+interface WaterTravel {
     fun sail()
 }
 
