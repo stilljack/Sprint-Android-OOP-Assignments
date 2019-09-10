@@ -1,7 +1,7 @@
 package com.saucefan.stuff.m02.model
 
- class Helicopter : Vehicle(), AirTravel {
-    override var id= "1"
+ class Helicopter(id:String) : Vehicle(id), AirTravel {
+
     override fun move(): String {
         return "$id can ${fly()}"
     }
@@ -12,8 +12,8 @@ package com.saucefan.stuff.m02.model
 
 }
 
-class Car() : Vehicle(), GroundTravel {
-    override var id= "2"
+class Car(id:String) : Vehicle(id), GroundTravel {
+
     override fun drive() :  String{
        return "Drive()"
     }
@@ -24,8 +24,8 @@ class Car() : Vehicle(), GroundTravel {
 
 }
 
-class Boat() : Vehicle(), WaterTravel {
-    override var id= "3"
+class Boat(id:String) : Vehicle(id), WaterTravel {
+
     override fun move(): String {
         return "$id can ${sail()}"
     }
@@ -37,8 +37,8 @@ class Boat() : Vehicle(), WaterTravel {
 
 }
 
-class BoatCar() : Vehicle(), WaterTravel, GroundTravel {
-    override var id= "4"
+class BoatCar(id:String) : Vehicle(id), WaterTravel, GroundTravel {
+
     override fun move(): String {
         return "$id can ${sail()} and ${drive()}"
     }
@@ -53,7 +53,7 @@ class BoatCar() : Vehicle(), WaterTravel, GroundTravel {
 
 }
 
-class BondCar(id:String) : Vehicle(), WaterTravel, GroundTravel, AirTravel {
+class BondCar(id:String) : Vehicle(id), WaterTravel, GroundTravel, AirTravel {
     override fun fly() :  String {
         return "Fly()"
     }
@@ -73,8 +73,7 @@ class BondCar(id:String) : Vehicle(), WaterTravel, GroundTravel, AirTravel {
 
 }
 
-class BoatPlane(weight:String) : Vehicle(weight), WaterTravel, AirTravel {
-    override var id= "5"
+class BoatPlane(id:String,weight:String) : Vehicle(id,weight), WaterTravel, AirTravel {
     override fun move(): String {
         return "$id can ${fly()} and  ${sail()} "
     }

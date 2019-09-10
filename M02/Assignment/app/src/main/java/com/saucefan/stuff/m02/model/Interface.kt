@@ -3,7 +3,7 @@ package com.saucefan.stuff.m02.model
 
 //one abstract class
 abstract class Vehicle(
-   open val id: String? = null,
+    val id: String? = null,
     val weight: String? = null,
     val favorite: Boolean = false
     /// something:Something ;)
