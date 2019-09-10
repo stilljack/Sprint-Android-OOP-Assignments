@@ -6,30 +6,29 @@ package com.saucefan.stuff.m02.model
     }
 
     override fun fly() :  String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return "Fly()"
     }
 
 }
 
 class Car() : Vehicle(), GroundTravel {
     override fun drive() :  String{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+       return "Drive()"
     }
 
     override fun move(): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return "$id can ${drive()}"
     }
-
 
 }
 
 class Boat() : Vehicle(), WaterTravel {
     override fun move(): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return "$id can ${sail()}"
     }
 
     override fun sail():  String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return "Sail()"
     }
 
 
@@ -37,50 +36,48 @@ class Boat() : Vehicle(), WaterTravel {
 
 class BoatCar() : Vehicle(), WaterTravel, GroundTravel {
     override fun move(): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return "$id can ${sail()} and ${drive()}"
+    }
+    override fun sail():  String {
+        return "Sail()"
+    }
+    override fun drive() :  String{
+        return "Drive()"
     }
 
-    override fun sail() :  String{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun drive():  String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
 
 }
 
 class BondCar() : Vehicle(), WaterTravel, GroundTravel, AirTravel {
-    override fun fly() :  String{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun fly() :  String {
+        return "Fly()"
     }
 
     override fun move(): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return "$id can ${fly()} and ${drive()} and ${sail()} "
     }
 
-    override fun sail() :  String{
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun sail():  String {
+        return "Sail()"
     }
 
-    override fun drive():  String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun drive() :  String{
+        return "Drive()"
     }
+
 
 }
 
 class BoatPlane() : Vehicle(), WaterTravel, AirTravel {
     override fun move(): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return "$id can ${fly()} and  ${sail()} "
     }
-
-    override fun fly():  String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun fly() :  String {
+        return "Fly()"
     }
-
     override fun sail():  String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return "Sail()"
     }
 
 
