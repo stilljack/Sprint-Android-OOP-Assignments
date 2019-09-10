@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper
 
 
 
-open class ShoppingItem(open val colorId:String, val productName:String) {
+open class ShoppingItem(open val colorId:String,  open val productName:String) {
     var getPN = productName
     open fun getDisplayName(): String {
         return getPN
