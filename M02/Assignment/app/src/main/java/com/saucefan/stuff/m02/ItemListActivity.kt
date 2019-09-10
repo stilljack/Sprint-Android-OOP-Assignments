@@ -103,6 +103,12 @@ class ItemListActivity : AppCompatActivity() {
             with(holder.itemView) {
                 tag = item
                 setOnClickListener(onClickListener)
+
+
+                setOnLongClickListener{
+                    ArrayListVehicles.vehicleArrayList
+                    true
+                }
             }
         }
 

@@ -53,29 +53,10 @@ class BoatCar(id:String) : Vehicle(id), WaterTravel, GroundTravel {
 
 }
 
-class BondCar(id:String) : Vehicle(id), WaterTravel, GroundTravel, AirTravel {
-    val type ="bondcar"
-    override fun fly() :  String {
-        return "Fly()"
-    }
-
-    override fun travel(): String {
-        return "$type $id can ${fly()} and ${drive()} and ${sail()} "
-    }
-
-    override fun sail():  String {
-        return "Sail()"
-    }
-
-    override fun drive() :  String{
-        return "Drive()"
-    }
 
 
-}
-
-class BoatPlane(id:String,weight:String) : Vehicle(id,weight), WaterTravel, AirTravel {
-    val type ="boatplane"
+open class BoatPlane(id:String,weight:String) : Vehicle(id,weight), WaterTravel, AirTravel {
+    open val type ="boatplane"
     override fun travel(): String {
         return "$type $id can ${fly()} and  ${sail()} "
     }
@@ -84,6 +65,19 @@ class BoatPlane(id:String,weight:String) : Vehicle(id,weight), WaterTravel, AirT
     }
     override fun sail():  String {
         return "Sail()"
+    }
+
+
+}
+
+class BondCar(id:String,weight:String) : BoatPlane(id, weight), GroundTravel {
+
+    override fun travel(): String {
+        return "$type $id can ${fly()} and ${drive()} and ${sail()} "
+    }
+
+    override fun drive() :  String{
+        return "Drive()"
     }
 
 
