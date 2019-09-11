@@ -28,20 +28,20 @@ class MainActivity : AppCompatActivity() {
     To finish this task, you will need to import rxjava, rxAndroid dependencies using gradle.
 */
 
-        Observable.just("1","2","3")
-        Observable.just(BradPit("id","never talk about fight club"),TomCruise("notid","impossible"))
+        var observableInt =Observable.just("1","2","3")
+        var observableActors = Observable.just(BradPit("id","never talk about fight club"),TomCruise("notid","impossible"))
 
         /*  Task 8
 
 
         Create an observable that emits objects of a custom data class Actor
         To finish this task, create two actors Tom Cruise, Brad Pitt and return these objects using an observable.*/
-
+        observableActors.subscribe() {
+            println(it.toString())
+        }
 
 
 /*    Task 9
-
-
     Create a dummy network API like the one in the guided project to return four movies with custom attributes such as year of release, title, language, imdb rating (feel free to be creative here!, you will need to create a data class for Movie to start this task)
     Make a call to this NetworkAPI to fetch the movie data and then observe the response and print it to the console.
 
