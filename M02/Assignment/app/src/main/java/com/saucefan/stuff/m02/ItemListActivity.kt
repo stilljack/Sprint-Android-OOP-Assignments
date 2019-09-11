@@ -1,6 +1,8 @@
 package com.saucefan.stuff.m02
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -9,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.saucefan.stuff.m02.model.ArrayListVehicles
 import com.saucefan.stuff.m02.model.Vehicle
 import kotlinx.android.synthetic.main.activity_item_list.*
@@ -100,6 +103,9 @@ class ItemListActivity : AppCompatActivity() {
             holder.idView.text = item.id
             holder.contentView.text = item.travel()
 
+            if (item.favorite){
+                holder.contentView.setBackgroundColor(ContextCompat.getColor(holder.contentView.context,R.color.colorBackgroundFavorite))
+            }else holder.contentView.setBackgroundColor(ContextCompat.getColor(holder.contentView.context,R.color.colorBackgroundNotFavorite))
             with(holder.itemView) {
                 tag = item
                 setOnClickListener(onClickListener)
