@@ -15,12 +15,15 @@ abstract class Vehicle(
 //three interfaces
 interface AirTravel {
     fun fly():  String
+    fun typeMethod():String { return "air" }
 }
 
 interface WaterTravel {
     fun sail():  String
+    fun typeMethod():String { return "water" }
 }
 
 interface GroundTravel {
     fun drive():  String
+    fun type():String { return "ground" }
 }

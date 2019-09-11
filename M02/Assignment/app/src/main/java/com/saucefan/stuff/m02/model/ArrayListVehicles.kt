@@ -20,7 +20,6 @@ object ArrayListVehicles {
     )
 
 
-    private val COUNT = 25
 
     var ITEMS: MutableList<Vehicle> = vehicleArrayList
 

@@ -14,18 +14,13 @@ import com.saucefan.stuff.m02.model.Vehicle
 import kotlinx.android.synthetic.main.activity_item_detail.*
 import kotlinx.android.synthetic.main.item_detail.view.*
 
-/**
- * A fragment representing a single Item detail screen.
- * This fragment is either contained in a [ItemListActivity]
- * in two-pane mode (on tablets) or a [ItemDetailActivity]
- * on handsets.
- */
 class ItemDetailFragment : Fragment() {
 
-    /**
-     * The dummy content this fragment is presenting.
-     */
     private var item: Vehicle?= null
+    /* ArrayListVehicles.ITEMS
+                            ArrayListVehicles.ITEM_MAP
+                            ArrayListVehicles.vehicleArrayList*/
+
 
     interface Favorite {
         fun flipFavorite(item:Vehicle,context: Context) {
@@ -37,9 +32,7 @@ fun toastPop(message:String) {
             for (i in 0 until ArrayListVehicles.vehicleArrayList.size) {
                 if (ArrayListVehicles.vehicleArrayList[i] == item ){
                     if (item.favorite){
-                        ArrayListVehicles.ITEMS
-                        ArrayListVehicles.ITEM_MAP
-                        ArrayListVehicles.vehicleArrayList
+
                         item.favorite = false
                         toastPop("$item is now unfavorited -- item. favorite value=${item.favorite} (and should be false)")
                         break
@@ -79,7 +72,11 @@ fun toastPop(message:String) {
         // Show the dummy content as text in a TextView.
         item?.let {
             rootView.item_detail.text = it.travel()
+    /*        if (item. != null) {
+                rootView.item_detail.text += item.fly() as String
+            }*/
         }
+
 
         return rootView
     }

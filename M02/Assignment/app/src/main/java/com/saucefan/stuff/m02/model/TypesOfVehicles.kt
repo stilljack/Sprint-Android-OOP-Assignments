@@ -27,7 +27,7 @@ class Car(id:String) : Vehicle(id), GroundTravel {
 class Boat(id:String) : Vehicle(id), WaterTravel {
     val type ="boat"
     override fun travel(): String {
-        return "$type $id can ${sail()}"
+        return "${typeMethod()} -- TV = $type $id can ${sail()}"
     }
 
     override fun sail():  String {
@@ -38,9 +38,13 @@ class Boat(id:String) : Vehicle(id), WaterTravel {
 }
 
 class BoatCar(id:String) : Vehicle(id), WaterTravel, GroundTravel {
+    override fun typeMethod(): String {
+  return "boatcar implemented typeMethod()"
+    }
+
     val type ="boatcar"
     override fun travel(): String {
-        return "$type $id can ${sail()} and ${drive()}"
+        return "${typeMethod()} -- TV = $type $id can ${sail()} and ${drive()}"
     }
     override fun sail():  String {
         return "Sail()"
@@ -56,9 +60,15 @@ class BoatCar(id:String) : Vehicle(id), WaterTravel, GroundTravel {
 
 
 open class BoatPlane(id:String,weight:String) : Vehicle(id,weight), WaterTravel, AirTravel {
+
+    override fun typeMethod(): String {
+        super<AirTravel>.typeMethod()
+        return "${typeMethod()}"
+    }
+
     open val type ="boatplane"
     override fun travel(): String {
-        return "$type $id can ${fly()} and  ${sail()} "
+        return "TM()= ${typeMethod()} -- TV = $type $id can ${fly()} and  ${sail()} "
     }
     override fun fly() :  String {
         return "Fly()"
@@ -71,9 +81,13 @@ open class BoatPlane(id:String,weight:String) : Vehicle(id,weight), WaterTravel,
 }
 
 class BondCar(id:String,weight:String) : BoatPlane(id, weight), GroundTravel {
+    override fun typeMethod(): String {
+        super<BoatPlane>.typeMethod()
+        return "I expect you to die"
+    }
 // we also pick up the need for a weight constructor
     override fun travel(): String {
-        return "$type $id can ${fly()} and ${drive()} and ${sail()} "
+        return "${typeMethod()} -- TV = $type $id can ${fly()} and ${drive()} and ${sail()} "
     }
 
     override fun drive() :  String{
