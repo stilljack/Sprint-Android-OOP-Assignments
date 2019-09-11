@@ -38,12 +38,12 @@ fun toastPop(message:String) {
                 if (ArrayListVehicles.vehicleArrayList[i] == item ){
                     if (item.favorite){
                         item.favorite = false
-                        toastPop("$item is now unfavorited -- item.favorite value=${item.favorite}")
+                        toastPop("$item is now unfavorited -- item. favorite value=${item.favorite} (and should be false)")
                         break
                     }else {
                         item.favorite = true
 
-                        toastPop("$item is now favorited --item.favorite value=${item.favorite}")
+                        toastPop("$item is now favorited --item. favorite value=${item.favorite} (and should be true)")
                         break
                     }
                 }
