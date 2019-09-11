@@ -24,9 +24,12 @@ class MainActivity : AppCompatActivity() {
 
         val exampleMutableList = mutableListOf<String>("1")
         //I can't add an int of course!
+            //    stringClass(1) cant do that either
 
-
-
+        //STEP 4 exposure
+       val step4= containerClass(this).stringCheck("bah hum bug")
+        exampleMutableList.add(step4)
+        Toast.makeText(this,"$step4 -- step4 worked",Toast.LENGTH_LONG).show()
     }
     /*       Task 2
     Create a class that accepts a particular type.
@@ -39,29 +42,56 @@ class MainActivity : AppCompatActivity() {
             return getter
         }
 
+
+
     }
 
     /*        Task 3
         Create a Function that can specify the type of arguments it can accept
         Check to see what happens if you pass on object that is not of this type.*/
-        class containerClas<T>(context: Context) {
 
-        fun <T>getter(t:T,context: Context) {
+
+        class containerClass(context: Context) {
+            fun stringCheck(str:String):String {
+                return str+"altered by containerClass.stringCheck()"
+            }
+
+            fun <T>getter(t:T,context: Context) {
         Toast.makeText(context,"$t was pssed to the getter method successfully",Toast.LENGTH_SHORT).show()
+
+            /*        Task 4
+             Steps
+             Create a function that returns a certain type
+             Expose this function to another class which can then directly call this function and retrive the object returned by the function*/
+
 
         }
     }
 
+/*
+    Steps
 
+    Enforce Generic Constraints by creating a class and denoting the type of objects it can hold.
+    To finish this task 5, create a class Phone that only accepts objects of type CellularService.
+    */
+    class CellularService(val id:String)
+
+    class Phone<T:CellularService>() {
+        fun ringRing(T:CellularService) {
+
+
+        }
     }
 
+/*    Steps
+
+    Enforce restricted types for a class to related types of objects.
+    To finish task 6, after task 5, refactor class Phone so that it can accept two types of CellularService like TMobile and Verizon.*/
 
 
 
-/*        Task 4
-        Steps
-        Create a function that returns a certain type
-                Expose this function to another class which can then directly call this function and retrive the object returned by the function*/
+
+}
 
 
 
