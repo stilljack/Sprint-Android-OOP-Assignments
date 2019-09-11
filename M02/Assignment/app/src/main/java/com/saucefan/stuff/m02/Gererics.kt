@@ -29,7 +29,7 @@ class Gererics : AppCompatActivity() {
         super.onStart()
         val observable = Observable.just(mark(),"Beta",)
         val observable = Observable.just("alpha","Beta",)
-        observable.subscribe(){string->println("the observable returned $string")}
+        val sauce =observable.subscribe(){string->println("the observable returned $string")}
 
         open class Person
         class Mark: Person()
