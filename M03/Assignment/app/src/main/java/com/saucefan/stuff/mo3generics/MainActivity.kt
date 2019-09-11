@@ -74,8 +74,9 @@ class MainActivity : AppCompatActivity() {
     Enforce Generic Constraints by creating a class and denoting the type of objects it can hold.
     To finish this task 5, create a class Phone that only accepts objects of type CellularService.
     */
-    class CellularService(val id:String)
-
+    open class CellularService(val id:String)
+    class Tmobile(id:String):CellularService(id)
+    class Verizon(id:String):CellularService(id)
     class Phone<T:CellularService>() {
         fun ringRing(T:CellularService) {
 
