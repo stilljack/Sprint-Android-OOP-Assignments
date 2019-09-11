@@ -9,7 +9,7 @@ object ArrayListVehicles {
         BondCar(id = "007", weight = "v heavy"),
         BoatCar("3"),
         Car("4"),
-        BoatPlane("3", "3 hundo"),
+        BoatPlane("5", "3 hundo"),
 
         Helicopter("11"),
         Boat("222"),
@@ -22,24 +22,24 @@ object ArrayListVehicles {
 
     private val COUNT = 25
 
-    val ITEMS: MutableList<Vehicle> = vehicleArrayList
+    var ITEMS: MutableList<Vehicle> = vehicleArrayList
 
     var ITEM_MAP: MutableMap<String, Vehicle> = HashMap()
 
     init {
-        buildList()
+
     }
 
     fun buildList() {
         ITEM_MAP = HashMap()
-        for (i in 1..vehicleArrayList.size) {
+
+        for (i in 0..vehicleArrayList.size -1) {
             addItem(vehicleArrayList[i])
         }
     }
     private fun addItem(item: Vehicle) {
-        ITEMS.add(item)
         if (item.id != null) {
-            ITEM_MAP.put(item.id as String, item)
+            ITEM_MAP.put(item.id, item)
         }
     }
 }

@@ -37,12 +37,14 @@ fun toastPop(message:String) {
             for (i in 0 until ArrayListVehicles.vehicleArrayList.size) {
                 if (ArrayListVehicles.vehicleArrayList[i] == item ){
                     if (item.favorite){
+                        ArrayListVehicles.ITEMS
+                        ArrayListVehicles.ITEM_MAP
+                        ArrayListVehicles.vehicleArrayList
                         item.favorite = false
                         toastPop("$item is now unfavorited -- item. favorite value=${item.favorite} (and should be false)")
                         break
                     }else {
                         item.favorite = true
-
                         toastPop("$item is now favorited --item. favorite value=${item.favorite} (and should be true)")
                         break
                     }

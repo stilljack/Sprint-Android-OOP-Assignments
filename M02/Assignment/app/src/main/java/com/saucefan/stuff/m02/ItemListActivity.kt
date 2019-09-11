@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.saucefan.stuff.m02.model.ArrayListVehicles
+import com.saucefan.stuff.m02.model.ArrayListVehicles.buildList
 import com.saucefan.stuff.m02.model.Vehicle
 import kotlinx.android.synthetic.main.activity_item_list.*
 import kotlinx.android.synthetic.main.item_list_content.view.*
@@ -58,6 +59,7 @@ class ItemListActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
+        buildList()
         recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, ArrayListVehicles.vehicleArrayList, twoPane)
     }
 
