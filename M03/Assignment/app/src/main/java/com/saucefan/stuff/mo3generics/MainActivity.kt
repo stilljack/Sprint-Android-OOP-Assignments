@@ -7,12 +7,20 @@ import androidx.appcompat.app.AppCompatActivity
 import com.saucefan.stuff.mo3generics.mockApi.Companion.getMovieList
 import io.reactivex.Observable
 
+class Tmobile(id: String) : MainActivity.CellularService(id)
+class Verizon(id: String) : MainActivity.CellularService(id)
+class Phone<T : MainActivity.CellularService>() {
+    fun ringRing(T: MainActivity.CellularService) {
+
+
+    }
+}
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        Phone(
     }
 
 
@@ -94,6 +102,8 @@ Define the class and the type and see what happens when you pass an object that 
 
 
         }
+
+
     }
 
     /*
@@ -113,17 +123,15 @@ To finish task 6, after task 5, refactor class Phone so that it can accept two t
     data class TomCruise(override var id: String, val misson: String) : Actor(id)
     data class BradPit(override var id: String, val fightClub: String) : Actor(id)
 
-    class Tmobile(id: String) : CellularService(id)
-    class Verizon(id: String) : CellularService(id)
-    class Phone<T : CellularService>() {
-        fun ringRing(T: CellularService) {
 
 
-        }
-    }
+
 
 
 }
+
+
+
 
 
 
