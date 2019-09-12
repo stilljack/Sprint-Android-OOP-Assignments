@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                         if (newPokedex != null) {
                             pokedexList.add(newPokedex)
                         }
-                        //adapter.notifyItemInserted(pokedexList.size - 1)
+                        adapter.notifyItemInserted(pokedexList.size - 1)
                     }
                 })
         }
