@@ -5,13 +5,10 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.saucefan.stuff.m04pokebinding.R
 import com.saucefan.stuff.m04pokebinding.api.ApiInterface
 import com.saucefan.stuff.m04pokebinding.api.ApiInterface.Factory.Companion.pokedexList
 import com.saucefan.stuff.m04pokebinding.model.PokeForms
-import com.saucefan.stuff.m04pokebinding.model.Pokedex
-import com.saucefan.stuff.m04pokebinding.view.ReAdapter.Companion.deleteList
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,8 +20,6 @@ class MainActivity : AppCompatActivity() {
 
 
     var pokedexRetrofit = ApiInterface.Factory.create() // make an instance just for pokedex calls
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,10 +28,6 @@ class MainActivity : AppCompatActivity() {
         recycle_view.layoutManager = manager
         val adapter = ReAdapter(pokedexList)
         recycle_view.adapter = adapter
-
-        //recycle_view.setHasFixedSize(true)
-        //val manager = StaggeredGridLayoutManager(7, StaggeredGridLayoutManager.VERTICAL)
-        //  recycle_view.layoutManager = manager
 
 
         fun makeArandomPokedex(number: Int) {
@@ -83,7 +74,20 @@ class MainActivity : AppCompatActivity() {
                         adapter.notifyItemInserted(pokedexList.size - 1)
                     }
                 })
-            pokedexRetrofit.getPokedex(et_pokeentry.text.toString())
+        }
+
+
+
+
+
+    }
+}
+
+
+/*
+pokedex fun for another time
+
+       pokedexRetrofit.getPokedex(et_pokeentry.text.toString())
                 .enqueue(object : Callback<Pokedex> {
                     override fun onFailure(call: Call<Pokedex>, t: Throwable) {
                         t.printStackTrace()
@@ -105,21 +109,12 @@ class MainActivity : AppCompatActivity() {
                             .show()
                     }
                 })
-        }
 
 
 
 
-        btn_delete.setOnClickListener {
-            pokedexList.removeAll(deleteList)
-            deleteList.removeAll(deleteList)
-            adapter.notifyDataSetChanged()
-        }
-    }
-}
 
 
-/*
 
 working pokemon details object
 

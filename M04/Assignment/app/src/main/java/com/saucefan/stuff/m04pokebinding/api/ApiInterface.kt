@@ -2,7 +2,6 @@ package com.saucefan.stuff.m04pokebinding.api
 
 import com.google.gson.Gson
 import com.saucefan.stuff.m04pokebinding.model.PokeForms
-import com.saucefan.stuff.m04pokebinding.model.Pokedex
 import com.saucefan.stuff.m04pokebinding.model.PokemonDetails
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -11,8 +10,6 @@ import retrofit2.http.*
 
 
 interface ApiInterface {
-    @GET("pokedex/{id}")
-    fun getPokedex(@Path("id") id:String): Call<Pokedex>
 
     @GET("pokemon-form/{name}")
     fun getPokemonForm(@Path("name") name: String): Call<PokeForms>

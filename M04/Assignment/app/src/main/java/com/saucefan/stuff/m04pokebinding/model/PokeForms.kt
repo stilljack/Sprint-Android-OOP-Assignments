@@ -5,19 +5,19 @@ package com.saucefan.stuff.m04pokebinding.model
 //this one sucked and was from that website
 //i mean sucked is the worng word... kinda sucked
 data class PokeForms (
-    val formName: String,
-    val formNames: List<Any?>,
-    val formOrder: Long,
-    val id: Long,
-    val isBattleOnly: Boolean,
-    val isDefault: Boolean,
-    val isMega: Boolean,
+//   val formName: String,
+//    val formNames: List<Any?>,
+ //   val formOrder: Long,
+    val id: Int,
+ //   val isBattleOnly: Boolean,
+ //   val isDefault: Boolean,
+  //  val isMega: Boolean,
     val name: String,
-    val names: List<Any?>,
-    val order: Long,
-    val pokemon: PokemonClass,
-    val sprites: Sprites,
-    val versionGroup: PokemonClass
+   // val names: List<Any?>,
+ //   val order: Long,
+  //  val pokemon: PokemonClass,
+    val sprites: Sprites
+ //   val versionGroup: PokemonClass
 )
 
 data class PokemonClass (
