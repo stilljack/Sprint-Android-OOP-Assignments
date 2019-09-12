@@ -2,13 +2,17 @@ package com.saucefan.stuff.m04pokebinding.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.databinding.BindingAdapter
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.saucefan.stuff.m04pokebinding.R
 import com.saucefan.stuff.m04pokebinding.api.ApiInterface
 import com.saucefan.stuff.m04pokebinding.api.ApiInterface.Factory.Companion.pokedexList
 import com.saucefan.stuff.m04pokebinding.model.PokeForms
+import com.saucefan.stuff.m04pokebinding.viewmodel.PokeViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,19 +22,30 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-
+    companion object {
+        @BindingAdapter("toastMessage")
+        @JvmStatic
+        fun showToast(view: View, message:String?) {
+            if (message != null)
+                Toast.makeText(view.context,message,Toast.LENGTH_LONG).show()
+        }
+    }
     var pokedexRetrofit = ApiInterface.Factory.create() // make an instance just for pokedex calls
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = DataBindingUtil.setContentView<ActivityLoginBinding>(this, R.layout.activity_main)
+        binding.viewModel = PokeViewModel()
+        binding.executePendingBindings()
 
-        val manager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
+
+    val manager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recycle_view.layoutManager = manager
         val adapter = ReAdapter(pokedexList)
         recycle_view.adapter = adapter
 
 
-        fun makeArandomPokedex(number: Int) {
+   /*   fun makeArandomPokedex(number: Int) {
             for (i in 1 until number) {
                 pokedexRetrofit.getPokemonForm(Random.nextInt(1, 950).toString())
                     .enqueue(object : Callback<PokeForms> {
@@ -53,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             }
             adapter.notifyDataSetChanged()
         }
-        makeArandomPokedex(10)
+        makeArandomPokedex(10)*/
         btn_submit.setOnClickListener {
             pokedexRetrofit.getPokemonForm(et_pokeentry.text.toString())
                 .enqueue(object : Callback<PokeForms> {
@@ -71,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                         if (newPokedex != null) {
                             pokedexList.add(newPokedex)
                         }
-                        adapter.notifyItemInserted(pokedexList.size - 1)
+                        //adapter.notifyItemInserted(pokedexList.size - 1)
                     }
                 })
         }
