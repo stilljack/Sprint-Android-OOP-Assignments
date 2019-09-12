@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.saucefan.stuff.m04pokebinding.R
 import com.saucefan.stuff.m04pokebinding.api.ApiInterface
 import com.saucefan.stuff.m04pokebinding.api.ApiInterface.Factory.Companion.pokedexList
+import com.saucefan.stuff.m04pokebinding.databinding.ActivityMainBinding
 import com.saucefan.stuff.m04pokebinding.model.PokeForms
 import com.saucefan.stuff.m04pokebinding.viewmodel.PokeViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     var pokedexRetrofit = ApiInterface.Factory.create() // make an instance just for pokedex calls
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityLoginBinding>(this, R.layout.activity_main)
+        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         binding.viewModel = PokeViewModel()
         binding.executePendingBindings()
 
