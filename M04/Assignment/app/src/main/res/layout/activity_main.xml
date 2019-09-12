@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.saucefan.stuff.m04pokebinding.viewmodel.PokeViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.MainActivity"
+        android:id="@+id/cl_toplevel">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="enter pokemon name here"
+            android:textSize="20dp"
+            android:id="@+id/et_pokeentry"
+            app:layout_constraintTop_toTopOf="@+id/cl_toplevel"
+            app:layout_constraintLeft_toLeftOf="@+id/cl_toplevel" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_submit"
+            app:layout_constraintTop_toBottomOf="@id/et_pokeentry"
+            app:layout_constraintLeft_toLeftOf="@id/cl_toplevel"
+            android:textSize="12dp"
+            android:text="submit"
+            />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:id="@+id/frame_content"
+            app:layout_constraintLeft_toLeftOf="@+id/cl_toplevel"
+            app:layout_constraintTop_toBottomOf="@id/btn_submit"
+            app:layout_constraintBottom_toTopOf="@id/tv"
+            >
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recycle_view"
+                android:background="#E1E1E1"
+                tools:listitem="@layout/list_layout"
+                />
+            </ScrollView>
+        <TextView
+            android:id="@+id/tv"
+            android:text="pokemon name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/cl_toplevel"
+            app:layout_constraintLeft_toLeftOf="@id/cl_toplevel"/>
+        <ImageView
+            android:onClick="@{()-> viewModel.onImageClicked()}"
+            bind:toastMessage="@{viewModel.toastMessage}"
+            android:id="@+id/iv"
+            android:text="pokemon name"
+            android:src="@drawable/ic_launcher_foreground"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cl_toplevel"
+            app:layout_constraintLeft_toRightOf="@id/tv"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
